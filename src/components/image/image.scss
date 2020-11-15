@@ -1,0 +1,51 @@
+.image {
+  background: url('https://images.pexels.com/photos/3626622/pexels-photo-3626622.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260') center bottom no-repeat;
+  background-size: cover;
+  height: 100vh;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  padding: 18% 10%;
+  box-sizing: border-box;
+
+  &::after {
+    background: linear-gradient(180deg, rgba(255, 255, 255, .08707633053221287) 20%, rgba(255, 255, 255, .8189250700280112) 100%);
+    content: '';
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+  }
+
+  &__info {
+    position: relative;
+    z-index: 2;
+  }
+
+  &__logo {
+    width: 180px;
+    margin-bottom: 15px;
+  }
+
+  &__slogan {
+    font-size: 21px;
+    font-family: Roboto, sans-serif;
+    font-weight: 300;
+    line-height: 30px;
+    margin-bottom: 15px;
+  }
+
+  &__button {
+    border: 0;
+    outline: none;
+    background-color: #f89903;
+    color: #fff;
+    font-family: Open-sans, sans-serif;
+    font-weight: 600;
+    border-radius: 6px;
+    padding: 10px 35px;
+    font-size: 17px;
+  }
+}
