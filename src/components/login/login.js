@@ -3,7 +3,7 @@ import { FaUser, FaMailBulk, FaLock } from "react-icons/fa";
 
 import "./login.scss";
 
-const Login = () => {
+const Login = (props) => {
   const [user, setUser] = useState();
   const [email, setEmail] = useState();
   const [pwd, setPwd] = useState();
@@ -22,15 +22,11 @@ const Login = () => {
 
   const handleFormClick = (e) => {
     e.preventDefault();
-    user === null || user === undefined
-      ? console.log("Name is empty...")
-      : console.log(`Name: ${user}`);
-    email === null || email === undefined
-      ? console.log("Email is empty or wrong format...")
-      : console.log(`Email: ${email}`);
-    pwd === null || pwd === undefined
-      ? console.log("Password is empty...")
-      : console.log(`Password: ${pwd}`);
+    props.handleFormClick({
+      user: { user },
+      email: { email },
+      pwd: { pwd },
+    });
   };
 
   return (
