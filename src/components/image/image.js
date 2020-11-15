@@ -6,7 +6,7 @@ const Image = () => {
     <section className="image">
       <div className="image__info">
         <img
-          class="image__logo"
+          className="image__logo"
           src="https://cdn.worldvectorlogo.com/logos/amazon-2.svg"
           alt="Amazon"
         />
