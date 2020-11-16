@@ -1,9 +1,10 @@
 import "./app.scss";
 import Image from "./components/image";
 import Login from "./components/login";
+import Register from "./components/register";
 
 const App = () => {
-  const handleFormClick = (loginData) => {
+  const handleFormLoginClick = (loginData) => {
     const userLogin = loginData.user.user;
     const emailLogin = loginData.email.email;
     const pwdLogin = loginData.pwd.pwd;
@@ -22,7 +23,10 @@ const App = () => {
   return (
     <div className="app">
       <Image />
-      <Login handleFormClick={handleFormClick} />
+      <section className="forms">
+        <Login handleFormLoginClick={handleFormLoginClick} />
+        <Register />
+      </section>
     </div>
   );
 };

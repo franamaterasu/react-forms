@@ -2,9 +2,9 @@ import React, { useState } from "react";
 import Logo from "../logo";
 import { FaUser, FaMailBulk, FaLock } from "react-icons/fa";
 
-import "./login.scss";
+import "./register.scss";
 
-const Login = (props) => {
+const Register = (props) => {
   const [user, setUser] = useState();
   const [email, setEmail] = useState();
   const [pwd, setPwd] = useState();
@@ -31,40 +31,40 @@ const Login = (props) => {
   };
 
   return (
-    <section className="login__content">
+    <section className="register__content">
       <Logo />
-      <h3 className="login__title">Login with your account</h3>
-      <form className="login">
-        <div className="login__row">
-          <FaUser className="login__icon" />
+      <h3 className="register__title">Register and enjoy</h3>
+      <form className="register">
+        <div className="register__row">
+          <FaUser className="register__icon" />
           <input
             type="text"
-            className="login__input"
+            className="register__input"
             placeholder="Your name..."
             onChange={handleOnChangeName}
           />
         </div>
-        <div className="login__row">
-          <FaMailBulk className="login__icon" />
+        <div className="register__row">
+          <FaMailBulk className="register__icon" />
           <input
             type="text"
-            className="login__input"
+            className="register__input"
             placeholder="Your email..."
             onChange={handleOnChangeMail}
           />
         </div>
-        <div className="login__row">
-          <FaLock className="login__icon" />
+        <div className="register__row">
+          <FaLock className="register__icon" />
           <input
             type="password"
-            className="login__input"
+            className="register__input"
             placeholder="Your password..."
             onChange={handleOnChangePwd}
           />
         </div>
         <button
           type="submit"
-          className="login__button"
+          className="register__button"
           onClick={handleFormLoginClick}
         >
           Log in
@@ -74,4 +74,4 @@ const Login = (props) => {
   );
 };
 
-export default Login;
+export default Register;
