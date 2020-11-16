@@ -28,7 +28,22 @@ const App = () => {
 
   // Formulario de registro
   const handleFormRegisterClick = (registerData) => {
-    setUserList([...userList, registerData]);
+    let userRegister = registerData.user;
+    let emailRegister = registerData.email;
+    let pwdRegister = registerData.pwd;
+
+    if (
+      userRegister === undefined ||
+      userRegister === "" ||
+      emailRegister === undefined ||
+      emailRegister === "" ||
+      pwdRegister === undefined ||
+      pwdRegister === ""
+    ) {
+      alert("Name, email and password info are required");
+    } else {
+      setUserList([...userList, registerData]);
+    }
   };
 
   console.log(userList);
