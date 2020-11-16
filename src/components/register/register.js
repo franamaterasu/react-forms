@@ -1,6 +1,13 @@
 import React, { useState } from "react";
 import Logo from "../logo";
-import { FaUser, FaMailBulk, FaLock, FaGenderless } from "react-icons/fa";
+import {
+  FaUser,
+  FaMailBulk,
+  FaLock,
+  FaGenderless,
+  FaIdBadge,
+  FaPhoneAlt,
+} from "react-icons/fa";
 
 import "./register.scss";
 
@@ -8,6 +15,9 @@ const Register = (props) => {
   const [user, setUser] = useState();
   const [email, setEmail] = useState();
   const [pwd, setPwd] = useState();
+  const [id, setId] = useState();
+  const [phone, setPhone] = useState();
+  const [gender, setGender] = useState();
 
   const handleOnChangeName = (e) => {
     setUser(e.target.value);
@@ -17,16 +27,31 @@ const Register = (props) => {
     setEmail(e.target.value);
   };
 
+  const handleOnChangeID = (e) => {
+    setId(e.target.value);
+  };
+
+  const handleChangePhone = (e) => {
+    setPhone(e.target.value);
+  };
+
+  const handleOnChangeGender = (e) => {
+    setGender(e.target.value);
+  };
+
   const handleOnChangePwd = (e) => {
     setPwd(e.target.value);
   };
 
-  const handleFormLoginClick = (e) => {
+  const handleFormRegisterClick = (e) => {
     e.preventDefault();
-    props.handleFormLoginClick({
-      user: { user },
-      email: { email },
-      pwd: { pwd },
+    props.handleFormRegisterClick({
+      user: user,
+      email: email,
+      id: id,
+      phone: phone,
+      gender: gender,
+      pwd: pwd,
     });
   };
 
@@ -54,8 +79,26 @@ const Register = (props) => {
           />
         </div>
         <div className="register__row">
+          <FaIdBadge className="register__icon" />
+          <input
+            type="text"
+            className="register__input"
+            placeholder="Your ID..."
+            onChange={handleOnChangeID}
+          />
+        </div>
+        <div className="register__row">
+          <FaPhoneAlt className="register__icon" />
+          <input
+            type="text"
+            className="register__input"
+            placeholder="Your phone..."
+            onChange={handleChangePhone}
+          />
+        </div>
+        <div className="register__row">
           <FaGenderless className="register__icon" />
-          <select className="register__select">
+          <select className="register__select" onChange={handleOnChangeGender}>
             <option value="">Gender</option>
             <option value="male">Male</option>
             <option value="female">Female</option>
@@ -73,7 +116,7 @@ const Register = (props) => {
         <button
           type="submit"
           className="register__button"
-          onClick={handleFormLoginClick}
+          onClick={handleFormRegisterClick}
         >
           Register
         </button>

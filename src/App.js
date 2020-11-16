@@ -1,3 +1,4 @@
+import React, { useState } from "react";
 import { Route, Switch } from "react-router-dom";
 import "./app.scss";
 import Image from "./components/image";
@@ -5,6 +6,10 @@ import Login from "./components/login";
 import Register from "./components/register";
 
 const App = () => {
+  // Listado de usuarios registrados
+  const [userList, setUserList] = useState([]);
+
+  // Formulario de login
   const handleFormLoginClick = (loginData) => {
     const userLogin = loginData.user.user;
     const emailLogin = loginData.email.email;
@@ -21,6 +26,13 @@ const App = () => {
       : console.log(`Password: ${pwdLogin}`);
   };
 
+  // Formulario de registro
+  const handleFormRegisterClick = (registerData) => {
+    setUserList([...userList, registerData]);
+  };
+
+  console.log(userList);
+
   return (
     <div className="app">
       <Image />
@@ -30,7 +42,7 @@ const App = () => {
             <Login handleFormLoginClick={handleFormLoginClick} />
           </Route>
           <Route exact path="/register">
-            <Register />
+            <Register handleFormRegisterClick={handleFormRegisterClick} />
           </Route>
         </Switch>
       </section>

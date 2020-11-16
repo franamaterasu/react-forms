@@ -3,11 +3,9 @@ import { Link, useLocation } from "react-router-dom";
 import "./image.scss";
 
 const Image = () => {
+  // Detectamos los parametros de la URL
   let location = useLocation();
-
   let actualLocation = location.pathname;
-
-  console.log(actualLocation);
 
   return (
     <section className="image">
