@@ -1,3 +1,4 @@
+import { Route, Switch } from "react-router-dom";
 import "./app.scss";
 import Image from "./components/image";
 import Login from "./components/login";
@@ -23,9 +24,15 @@ const App = () => {
   return (
     <div className="app">
       <Image />
-      <section className="forms">
-        <Login handleFormLoginClick={handleFormLoginClick} />
-        <Register />
+      <section className="app__forms">
+        <Switch>
+          <Route exact path="/">
+            <Login handleFormLoginClick={handleFormLoginClick} />
+          </Route>
+          <Route exact path="/register">
+            <Register />
+          </Route>
+        </Switch>
       </section>
     </div>
   );

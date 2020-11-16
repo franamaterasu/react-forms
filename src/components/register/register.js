@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Logo from "../logo";
-import { FaUser, FaMailBulk, FaLock } from "react-icons/fa";
+import { FaUser, FaMailBulk, FaLock, FaGenderless } from "react-icons/fa";
 
 import "./register.scss";
 
@@ -54,6 +54,14 @@ const Register = (props) => {
           />
         </div>
         <div className="register__row">
+          <FaGenderless className="register__icon" />
+          <select className="register__select">
+            <option value="">Gender</option>
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+          </select>
+        </div>
+        <div className="register__row">
           <FaLock className="register__icon" />
           <input
             type="password"
@@ -67,7 +75,7 @@ const Register = (props) => {
           className="register__button"
           onClick={handleFormLoginClick}
         >
-          Log in
+          Register
         </button>
       </form>
     </section>

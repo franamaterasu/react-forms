@@ -1,7 +1,14 @@
 import React from "react";
+import { Link, useLocation } from "react-router-dom";
 import "./image.scss";
 
 const Image = () => {
+  let location = useLocation();
+
+  let actualLocation = location.pathname;
+
+  console.log(actualLocation);
+
   return (
     <section className="image">
       <div className="image__info">
@@ -15,7 +22,15 @@ const Image = () => {
           place where people can come to find and discover anything they might
           want to buy online.
         </p>
-        <button className="image__button">Register</button>
+        {actualLocation === "/register" ? (
+          <Link className="image__button" to="/">
+            Login
+          </Link>
+        ) : (
+          <Link className="image__button" to="/register">
+            Register
+          </Link>
+        )}
       </div>
     </section>
   );
