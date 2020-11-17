@@ -27,10 +27,17 @@ const App = () => {
   };
 
   // Formulario de registro
+
+  const [errorRegister, setErrorRegister] = useState();
+
   const handleFormRegisterClick = (registerData) => {
     let userRegister = registerData.user;
     let emailRegister = registerData.email;
     let pwdRegister = registerData.pwd;
+
+    let existingUser = userList.find(
+      (user) => user.email === registerData.email
+    );
 
     if (
       userRegister === undefined ||
@@ -40,8 +47,11 @@ const App = () => {
       pwdRegister === undefined ||
       pwdRegister === ""
     ) {
-      alert("Name, email and password info are required");
+      setErrorRegister("Name, email and password info are required");
+    } else if (existingUser !== undefined) {
+      setErrorRegister("A user with this email was registered previously");
     } else {
+      setErrorRegister("User has been registered correctly");
       setUserList([...userList, registerData]);
     }
   };
@@ -57,7 +67,10 @@ const App = () => {
             <Login handleFormLoginClick={handleFormLoginClick} />
           </Route>
           <Route exact path="/register">
-            <Register handleFormRegisterClick={handleFormRegisterClick} />
+            <Register
+              handleFormRegisterClick={handleFormRegisterClick}
+              formMessage={errorRegister}
+            />
           </Route>
         </Switch>
       </section>

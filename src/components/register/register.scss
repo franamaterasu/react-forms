@@ -54,4 +54,14 @@
     font-size: 16px;
     width: 100%;
   }
+
+  &__error {
+    margin-top: 25px;
+
+    &__message {
+      font-family: Roboto, sans-serif;
+      font-weight: 300;
+      font-size: 15px;
+    }
+  }
 }

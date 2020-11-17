@@ -19,6 +19,8 @@ const Register = (props) => {
   const [phone, setPhone] = useState();
   const [gender, setGender] = useState();
 
+  const { formMessage } = props;
+
   const handleOnChangeName = (e) => {
     setUser(e.target.value);
   };
@@ -121,6 +123,9 @@ const Register = (props) => {
           Register
         </button>
       </form>
+      <div className="register__error">
+        <p className="register__error__message">{formMessage}</p>
+      </div>
     </section>
   );
 };
